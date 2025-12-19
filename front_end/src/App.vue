@@ -1,11 +1,41 @@
-<script setup></script>
+<script setup>
+import { RouterLink, RouterView} from "vue-router";
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <header>
+    <div class="wrapper">
+      <h1>Bloggity Blog 🛹</h1>
+      <nav>
+        <RouterLink to="/">Posts</RouterLink>
+        <RouterLink :to="{ name: 'author' }">Author</RouterLink>
+        <RouterLink :to="{ name: 'post' }">Post</RouterLink>
+        <RouterLink :to="{ name: 'tag' }">Tag</RouterLink>
+      </nav>
+    </div>
+  </header>
+
+  <RouterView />
 </template>
 
-<style scoped></style>
+<style scoped>
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
+
+  nav {
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  nav a {
+    padding: 0.5rem;
+  }
+</style>
